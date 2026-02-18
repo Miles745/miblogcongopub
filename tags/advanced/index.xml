@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>advanced on BD Motor Control</title>
-    <link>/tags/advanced/</link>
+    <link>https://miles745.github.io/miblogcongopub/tags/advanced/</link>
     <description>Recent content in advanced on BD Motor Control</description>
     <generator>Hugo</generator>
     <language>en-AU</language>
     <copyright>&amp;copy; 2024 Congo contributors</copyright>
-    <atom:link href="/tags/advanced/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://miles745.github.io/miblogcongopub/tags/advanced/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

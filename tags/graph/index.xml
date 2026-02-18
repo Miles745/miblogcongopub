@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Graph on BD Motor Control</title>
-    <link>/tags/graph/</link>
+    <link>https://miles745.github.io/miblogcongopub/tags/graph/</link>
     <description>Recent content in Graph on BD Motor Control</description>
     <generator>Hugo</generator>
     <language>en-AU</language>
     <copyright>&amp;copy; 2024 Congo contributors</copyright>
     <lastBuildDate>Wed, 06 Mar 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/graph/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://miles745.github.io/miblogcongopub/tags/graph/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Charts</title>
-      <link>/samples/charts/</link>
+      <link>https://miles745.github.io/miblogcongopub/samples/charts/</link>
       <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>/samples/charts/</guid>
+      <guid>https://miles745.github.io/miblogcongopub/samples/charts/</guid>
       <description>Congo includes Chart.js for powerful charts and data visualisations.</description>
     </item>
   </channel>

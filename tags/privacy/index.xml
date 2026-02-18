@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Privacy on BD Motor Control</title>
-    <link>/tags/privacy/</link>
+    <link>https://miles745.github.io/miblogcongopub/tags/privacy/</link>
     <description>Recent content in Privacy on BD Motor Control</description>
     <generator>Hugo</generator>
     <language>en-AU</language>
     <copyright>&amp;copy; 2024 Congo contributors</copyright>
     <lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://miles745.github.io/miblogcongopub/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rich Content</title>
-      <link>/samples/rich-content/</link>
+      <link>https://miles745.github.io/miblogcongopub/samples/rich-content/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>/samples/rich-content/</guid>
+      <guid>https://miles745.github.io/miblogcongopub/samples/rich-content/</guid>
       <description>This is an &lt;em&gt;example&lt;/em&gt; of a &lt;strong&gt;rich&lt;/strong&gt; content summary.</description>
     </item>
   </channel>
