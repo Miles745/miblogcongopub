@@ -1,0 +1,1175 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="zh-Hans"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>PMSM为什么在Free Wheeling时扭矩先增后减 &middot; BD Motor Control</title>
+    <meta name="title" content="PMSM为什么在Free Wheeling时扭矩先增后减 &middot; BD Motor Control" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="//localhost:1313/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="//localhost:1313/css/main.bundle.min.100caa677b4bc416cdd884107b203b4869f9b413a19aa57d12069fb826f1abe9.css"
+    integrity="sha256-EAyqZ3tLxBbN2IQQeyA7SGn5tBOhmqV9EgafuCbxq&#43;k="
+  />
+  
+    
+    
+    
+  
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="//localhost:1313/js/main.bundle.min.06491ef3124aa9851f72f3ba4d90475b4f6ea18c6b5a886c054791a579c22c07.js"
+      integrity="sha256-Bkke8xJKqYUfcvO6TZBHW09uoYxrWohsBUeRpXnCLAc="
+      data-copy="复制"
+      data-copied="已复制"
+    ></script>
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        解释 free-wheeling 回灌与制动扭矩“先增后减”的原因，并给出工程侧的判断与防护思路。
+      
+    "
+  />
+  
+  
+  
+  
+    <link rel="canonical" href="//localhost:1313/zh-hans/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/" />
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="//localhost:1313/zh-hans/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/">
+  <meta property="og:site_name" content="BD Motor Control">
+  <meta property="og:title" content="PMSM为什么在Free Wheeling时扭矩先增后减">
+  <meta property="og:description" content="解释 free-wheeling 回灌与制动扭矩“先增后减”的原因，并给出工程侧的判断与防护思路。">
+  <meta property="og:locale" content="zh_Hans">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-15T16:31:20+08:00">
+    <meta property="article:modified_time" content="2026-02-15T16:31:20+08:00">
+    <meta property="article:tag" content="Pmsm">
+    <meta property="article:tag" content="Tech">
+    <meta property="og:image" content="//localhost:1313/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/feature.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="//localhost:1313/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/feature.png">
+  <meta name="twitter:title" content="PMSM为什么在Free Wheeling时扭矩先增后减">
+  <meta name="twitter:description" content="解释 free-wheeling 回灌与制动扭矩“先增后减”的原因，并给出工程侧的判断与防护思路。">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "文档",
+    "name": "PMSM为什么在Free Wheeling时扭矩先增后减",
+    "headline": "PMSM为什么在Free Wheeling时扭矩先增后减",
+    
+    "abstract": "解释 free-wheeling 回灌与制动扭矩“先增后减”的原因，并给出工程侧的判断与防护思路。",
+    "inLanguage": "zh-Hans",
+    "url" : "\/\/localhost:1313\/zh-hans\/posts\/first-post\/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Congo"
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-02-15T16:31:20\u002b08:00",
+    "datePublished": "2026-02-15T16:31:20\u002b08:00",
+    
+    "dateModified": "2026-02-15T16:31:20\u002b08:00",
+    
+    "keywords": ["pmsm","tech"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "280"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "//localhost:1313/zh-hans/",
+       "name": "欢迎来到 Bd电机控制实验室! Tada",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "//localhost:1313/zh-hans/posts/",
+       "name": "文档",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Pmsm为什么在 Free Wheeling时扭矩先增后减",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  
+    <meta name="author" content="Congo" />
+  
+  
+    
+      <link href="https://twitter.com/" rel="me" />
+    
+      <link href="https://facebook.com/" rel="me" />
+    
+      <link href="https://linkedin.com/" rel="me" />
+    
+      <link href="https://youtube.com/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="//localhost:1313/lib/katex/katex.min.e189fd0238811989c3646dcebda8bc0cfb1ec791b79e60cf9d18f05a49c8a016.css"
+    integrity="sha256-4Yn9AjiBGYnDZG3Ovai8DPsex5G3nmDPnRjwWknIoBY="
+  />
+  
+  
+  <script defer src="//localhost:1313/lib/katex/katex.min.6b909443e6c8f6e5d24cc4872fe909a54770762047ae95e3f34f55ec2e6f6c3a.js" integrity="sha256-a5CUQ&#43;bI9uXSTMSHL&#43;kJpUdwdiBHrpXj809V7C5vbDo="></script>
+  
+  
+  <script
+    defer
+    src="//localhost:1313/lib/katex/auto-render.min.bb53eb953394531aae36fdd537065c4244eb8542901a3ce914601d932675b8ac.js"
+    integrity="sha256-u1PrlTOUUxquNv3VNwZcQkTrhUKQGjzpFGAdkyZ1uKw="
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   // block
+        {left: '$$', right: '$$', display: true},     // block
+        {left: '$', right: '$', display: false},      // inline
+        {left: '\\(', right: '\\)', display: false},  // inline
+      ],
+      throwOnError : false
+    });"
+  ></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >跳到主要内容</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/zh-hans/"
+    >BD Motor Control</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/zh-hans/posts/"
+                  title="文档"
+                  
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >文档</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/zh-hans/samples/"
+                  title="内容样例"
+                  
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >示例</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/zh-hans/about/"
+                  title="关于作者"
+                  
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >关于</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="https://github.com/jpanther/congo"
+                  title=""
+                  
+                  target="_blank"
+                  >
+                    <span
+                      class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600"
+                    ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                
+                
+                  <button
+                    id="search-button-1"
+                    title="搜索 (/)"
+                  >
+                    
+                      <span
+                        class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600"
+                      ><span class="icon relative inline-block px-1 align-text-bottom"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span></span><span
+                        class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                        ></span
+                      >
+                    
+                  </button>
+                
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                
+                
+  
+    
+    
+      <div class="group relative">
+        <button
+          class="group-dark:hover:text-primary-400 flex w-full items-center justify-end transition-colors group-hover:text-primary-600"
+        >
+          <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <path fill="currentColor" d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"/>
+  <path fill="currentColor" d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z"/>
+</svg>
+</span><span class="text-sm">ZH-HANS</span
+          ><span class="text-[0.6rem]"
+            ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+</span></span
+          >
+        </button>
+        
+          <div class="invisible w-full bg-transparent group-hover:visible"></div>
+        
+        <div
+          class=" invisible absolute z-50 flex flex-col whitespace-nowrap rounded border border-neutral-300 bg-neutral text-start text-base shadow group-hover:visible ltr:right-0 rtl:left-0 dark:border-neutral-600 dark:bg-neutral-800"
+        >
+          
+          
+          
+            
+            
+              
+                
+                <div class="flex flex-grow">
+                  
+                    <a
+                      href="//localhost:1313/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/"
+                      class="w-full py-1 pe-10 ps-2 decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                      >English</a
+                    >
+                  
+                </div>
+              
+            
+              
+            
+          
+            
+            
+              
+            
+              
+                
+                <div class="flex flex-grow">
+                  
+                    <a
+                      href="//localhost:1313/zh-hans/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/"
+                      class="flex w-full items-center justify-between bg-primary-100 px-2 py-1 dark:bg-primary-900"
+                      >简体中文<span
+                        class="ms-2 w-6 text-primary-600 dark:text-primary-400"
+                        ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"/></svg>
+</span></span
+                      ></a
+                    >
+                  
+                </div>
+              
+            
+          
+        </div>
+      </div>
+    
+  
+
+
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="//localhost:1313/zh-hans/"
+      >欢迎来到BD电机控制实验室! :tada:</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class=" inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="//localhost:1313/zh-hans/posts/"
+      >文档</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="//localhost:1313/zh-hans/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/"
+      >PMSM为什么在Free Wheeling时扭矩先增后减</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        PMSM为什么在Free Wheeling时扭矩先增后减
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <span title="预计阅读">2 分钟</span><span class="px-2 text-primary-500">&middot;</span>
+
+
+  
+  
+
+<span class="mb-[2px]">
+  <a
+    href="https://github.com/jpanther/congo/tree/dev/exampleSite/content/posts/first-post/pmsm-free-wheeling-torque/index.zh-hans.md"
+    class="text-lg hover:text-primary-500"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="编辑内容"
+    ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M490.3 40.4C512.2 62.27 512.2 97.73 490.3 119.6L460.3 149.7L362.3 51.72L392.4 21.66C414.3-.2135 449.7-.2135 471.6 21.66L490.3 40.4zM172.4 241.7L339.7 74.34L437.7 172.3L270.3 339.6C264.2 345.8 256.7 350.4 248.4 353.2L159.6 382.8C150.1 385.6 141.5 383.4 135 376.1C128.6 370.5 126.4 361 129.2 352.4L158.8 263.6C161.6 255.3 166.2 247.8 172.4 241.7V241.7zM192 63.1C209.7 63.1 224 78.33 224 95.1C224 113.7 209.7 127.1 192 127.1H96C78.33 127.1 64 142.3 64 159.1V416C64 433.7 78.33 448 96 448H352C369.7 448 384 433.7 384 416V319.1C384 302.3 398.3 287.1 416 287.1C433.7 287.1 448 302.3 448 319.1V416C448 469 405 512 352 512H96C42.98 512 0 469 0 416V159.1C0 106.1 42.98 63.1 96 63.1H192z"/></svg>
+</span></a
+  >
+</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+        <div class="prose">
+          
+          
+          
+          
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mb-6 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            
+              srcset="//localhost:1313/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/feature_hu_69dddb1d021b4435.webp"
+            
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="607"
+        height="309"
+        class="mb-6 rounded-md"
+        
+        
+        
+          src="//localhost:1313/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/feature.png"
+        
+      />
+    </picture>
+  
+
+
+          
+        </div>
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+        <div class="order-first px-0 lg:order-last lg:max-w-xs lg:ps-8">
+          <div class="toc pe-5 lg:sticky lg:top-10 print:hidden">
+            <details open class="-ms-5 mt-0 overflow-hidden rounded-lg ps-5">
+  <summary
+    class="block cursor-pointer bg-neutral-100 py-1 ps-5 text-lg font-semibold text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden"
+  >
+    目录
+  </summary>
+  <div class="border-s border-dotted border-neutral-300 py-2 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-free-wheeling-时为什么仍然会有扭矩">1. Free-wheeling 时为什么仍然会有扭矩</a></li>
+        <li><a href="#2-回灌开始的阈值为什么到某速度才开始出现明显制动">2. 回灌开始的阈值（为什么到某速度才开始出现明显制动）</a></li>
+        <li><a href="#3-制动扭矩先上升后下降的统一解释dcm--ccm--受限区">3. “制动扭矩先上升后下降”的统一解释（DCM → CCM → 受限区）</a></li>
+        <li><a href="#4-与别人解释的一致性dcmccm-只是更细的分段">4. 与“别人解释”的一致性：DCM/CCM 只是更细的分段</a></li>
+        <li><a href="#5-过压风险与母线电压上升的估算用于工程评估">5. 过压风险与母线电压上升的估算（用于工程评估）</a></li>
+        <li><a href="#6-工程防护建议母线过压与失控再生">6. 工程防护建议（母线过压与失控再生）</a></li>
+        <li><a href="#7-需要哪些参数才能把拐点与过压算到数值">7. 需要哪些参数才能把拐点与过压“算到数值”</a></li>
+        <li><a href="#快速结论">快速结论</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+          </div>
+        </div>
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        
+
+<blockquote>
+<p>场景：永磁同步电机（PMSM）在高速旋转时从正常控制（PWM/FOC）切到 <strong>free-wheeling / coast</strong>（停止主动调制，功率器件不再主动导通）。担忧点是反电势导致母线电容被回灌，引发过压；同时观察到制动（负）扭矩在高速段可能 <strong>先上升后下降</strong>。
+
+  
+  
+  
+  
+  
+
+  
+  
+  <figure class="mx-auto my-0 rounded-md">
+    
+      
+      
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            
+              srcset="//localhost:1313/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/SpdTrq6SO_hu_69dddb1d021b4435.webp"
+            
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="607"
+        height="309"
+        class="mx-auto my-0 rounded-md"
+        alt="Speed &amp; torque curve under Free-Wheeling"
+        loading="lazy" decoding="async"
+        
+          src="//localhost:1313/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/SpdTrq6SO.png"
+        
+      />
+    </picture>
+  
+
+
+    
+  </figure>
+
+</p>
+</blockquote>
+<h3 id="1-free-wheeling-时为什么仍然会有扭矩" class="relative group">1. Free-wheeling 时为什么仍然会有扭矩 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#1-free-wheeling-%e6%97%b6%e4%b8%ba%e4%bb%80%e4%b9%88%e4%bb%8d%e7%84%b6%e4%bc%9a%e6%9c%89%e6%89%ad%e7%9f%a9" aria-label="锚点">#</a></span></h3><p>即使停止主动控制，逆变器仍然存在：</p>
+
+  
+  
+  
+  
+  
+
+  
+  
+  <figure class="mx-auto my-0 rounded-md">
+    
+      
+      
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            
+              srcset="//localhost:1313/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/6SO_hu_4008876650c86da1.webp"
+            
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="461"
+        height="181"
+        class="mx-auto my-0 rounded-md"
+        alt="6-step operation illustration"
+        loading="lazy" decoding="async"
+        
+          src="//localhost:1313/posts/first-post/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/6SO.png"
+        
+      />
+    </picture>
+  
+
+
+    
+  </figure>
+
+
+<ul>
+<li>三相桥的 <strong>体二极管</strong>（或反并联二极管）</li>
+<li>母线电容（DC-link capacitor）</li>
+<li>以及器件/走线的寄生电阻、电感</li>
+</ul>
+<p>当电机作为发电机产生的反电动势足够高时，二极管会形成 <strong>被动整流</strong> 通路，把能量从机械侧送回直流母线：</p>
+<ul>
+<li>有回灌电流 → 有电磁功率 $P$（机械 → 电气）</li>
+<li>有功率交换 → 有电磁制动扭矩 $T = P/\omega$</li>
+</ul>
+<p>只有在“真正开路且没有任何可导通/容性回路”（几乎不符合实际逆变器硬件）时，电流无法形成，电磁扭矩才会接近 0。</p>
+<h3 id="2-回灌开始的阈值为什么到某速度才开始出现明显制动" class="relative group">2. 回灌开始的阈值（为什么到某速度才开始出现明显制动） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-%e5%9b%9e%e7%81%8c%e5%bc%80%e5%a7%8b%e7%9a%84%e9%98%88%e5%80%bc%e4%b8%ba%e4%bb%80%e4%b9%88%e5%88%b0%e6%9f%90%e9%80%9f%e5%ba%a6%e6%89%8d%e5%bc%80%e5%a7%8b%e5%87%ba%e7%8e%b0%e6%98%8e%e6%98%be%e5%88%b6%e5%8a%a8" aria-label="锚点">#</a></span></h3><p>反电势大小随转速近似线性：</p>
+<ul>
+<li>相电压或线电压的反电势幅值 $\propto \omega$</li>
+</ul>
+<p>当发电侧的“等效可整流直流电压”超过当前母线电压（加上器件压降/裕量）时，二极管开始导通并回灌。</p>
+<p>常用近似（忽略压降）：三相正弦电压经六脉波整流的平均直流电压</p>
+$$
+V_{rect} \approx 1.35\, V_{LL,rms}
+$$<p>阈值条件（开始显著回灌）：</p>
+$$
+V_{rect} \gtrsim V_{dc}
+$$<p>因此</p>
+$$
+V_{LL,rms} \gtrsim \frac{V_{dc}}{1.35}
+$$<p>把 $V_{LL,rms}$ 与 $k_e$ 的定义对应起来即可得到 $\omega_{th}$（不同厂家 $k_e$ 定义不同，需先统一单位）。</p>
+<h3 id="3-制动扭矩先上升后下降的统一解释dcm--ccm--受限区" class="relative group">3. “制动扭矩先上升后下降”的统一解释（DCM → CCM → 受限区） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-%e5%88%b6%e5%8a%a8%e6%89%ad%e7%9f%a9%e5%85%88%e4%b8%8a%e5%8d%87%e5%90%8e%e4%b8%8b%e9%99%8d%e7%9a%84%e7%bb%9f%e4%b8%80%e8%a7%a3%e9%87%8adcm--ccm--%e5%8f%97%e9%99%90%e5%8c%ba" aria-label="锚点">#</a></span></h3><p>实际波形通常可分为两个阶段：</p>
+<h4 id="31-阶段-a电流断续导通dcm扭矩随速度上升而上升" class="relative group">3.1 阶段 A：电流断续导通（DCM）——扭矩随速度上升而上升 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#31-%e9%98%b6%e6%ae%b5-a%e7%94%b5%e6%b5%81%e6%96%ad%e7%bb%ad%e5%af%bc%e9%80%9adcm%e6%89%ad%e7%9f%a9%e9%9a%8f%e9%80%9f%e5%ba%a6%e4%b8%8a%e5%8d%87%e8%80%8c%e4%b8%8a%e5%8d%87" aria-label="锚点">#</a></span></h4><p>刚超过阈值时：</p>
+<ul>
+<li>反电势只在波形峰值附近略高于 $V_{dc}$</li>
+<li>二极管只在小段时间内导通</li>
+<li>三相电流呈 <strong>脉冲/断续</strong>（“充一下—断一下”）</li>
+</ul>
+<p>随着速度进一步升高：</p>
+<ul>
+<li>反电势幅值增大 $E \propto \omega$</li>
+<li>超过 $V_{dc}$ 的时间（导通角）变长</li>
+<li>脉冲电流的峰值与平均值上升</li>
+</ul>
+<p>→ 平均回灌功率上升 → 制动扭矩增大。</p>
+<p>这对应“到某速度附近负扭矩突然出现并快速变大”。</p>
+<h4 id="32-阶段-b电流连续导通ccm后进入受限区扭矩开始下降" class="relative group">3.2 阶段 B：电流连续导通（CCM）后进入“受限区”——扭矩开始下降 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#32-%e9%98%b6%e6%ae%b5-b%e7%94%b5%e6%b5%81%e8%bf%9e%e7%bb%ad%e5%af%bc%e9%80%9accm%e5%90%8e%e8%bf%9b%e5%85%a5%e5%8f%97%e9%99%90%e5%8c%ba%e6%89%ad%e7%9f%a9%e5%bc%80%e5%a7%8b%e4%b8%8b%e9%99%8d" aria-label="锚点">#</a></span></h4><p>当速度更高时，二极管导通几乎不再中断，进入 <strong>连续电流</strong>。但此时扭矩不一定继续增大，因为会出现越来越强的限制，使<strong>能产生有功功率的成分增长不起来</strong>：</p>
+<h4 id="1-电感电抗随频率上升电流幅值趋于特征电流" class="relative group">(1) 电感电抗随频率上升，电流幅值趋于“特征电流” <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#1-%e7%94%b5%e6%84%9f%e7%94%b5%e6%8a%97%e9%9a%8f%e9%a2%91%e7%8e%87%e4%b8%8a%e5%8d%87%e7%94%b5%e6%b5%81%e5%b9%85%e5%80%bc%e8%b6%8b%e4%ba%8e%e7%89%b9%e5%be%81%e7%94%b5%e6%b5%81" aria-label="锚点">#</a></span></h4><p>电气频率 $\omega_e \propto \omega$，绕组电抗</p>
+$$
+X_L = \omega_e L
+$$<p>在高频极限，电流被电感限制，量级趋近</p>
+$$
+I \sim \frac{E}{X_L} \approx \frac{k_e\omega}{\omega L} = \frac{k_e}{L} \quad (\text{近似趋于常数})
+$$<p>这也常被表述为“高速段电流幅值趋于电机特征电流”。</p>
+<h4 id="2-扭矩-即便功率不再增长扭矩也会被--拉低" class="relative group">(2) 扭矩 $T = P/\omega$：即便功率不再增长，扭矩也会被 $1/\omega$ 拉低 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-%e6%89%ad%e7%9f%a9-%e5%8d%b3%e4%be%bf%e5%8a%9f%e7%8e%87%e4%b8%8d%e5%86%8d%e5%a2%9e%e9%95%bf%e6%89%ad%e7%9f%a9%e4%b9%9f%e4%bc%9a%e8%a2%ab--%e6%8b%89%e4%bd%8e" aria-label="锚点">#</a></span></h4><p>若母线是“硬母线”（电池/电源/制动斩波器能吸收能量，使 $V_{dc}$ 近似恒定）：</p>
+<ul>
+<li>回灌功率可近似 $P \approx V_{dc} I_{dc}$</li>
+<li>一旦 $I_{dc}$ 受限而趋于平台，$P$ 也趋于平台</li>
+</ul>
+<p>则</p>
+$$
+T = \frac{P}{\omega} \approx \frac{\text{常数}}{\omega} \to 0 \quad (\omega\to\infty)
+$$<p>所以连续导通后，扭矩出现峰值并转为下降是很常见的。</p>
+<h4 id="3-若母线只能靠电容吸能无回馈无制动电阻下降会更早且伴随过压风险" class="relative group">(3) 若母线只能靠电容吸能（无回馈/无制动电阻），下降会更早且伴随过压风险 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-%e8%8b%a5%e6%af%8d%e7%ba%bf%e5%8f%aa%e8%83%bd%e9%9d%a0%e7%94%b5%e5%ae%b9%e5%90%b8%e8%83%bd%e6%97%a0%e5%9b%9e%e9%a6%88%e6%97%a0%e5%88%b6%e5%8a%a8%e7%94%b5%e9%98%bb%e4%b8%8b%e9%99%8d%e4%bc%9a%e6%9b%b4%e6%97%a9%e4%b8%94%e4%bc%b4%e9%9a%8f%e8%bf%87%e5%8e%8b%e9%a3%8e%e9%99%a9" aria-label="锚点">#</a></span></h4><p>回灌会抬升 $V_{dc}$：</p>
+<ul>
+<li>$V_{dc}$ 升高 → “$V_{rect}$ 超过 $V_{dc}$ 的余量”变小</li>
+<li>导通角缩短/电流驱动电压差减小</li>
+</ul>
+<p>→ 回灌电流更快变小 → 制动扭矩下降更明显，同时更易过压。</p>
+<h3 id="4-与别人解释的一致性dcmccm-只是更细的分段" class="relative group">4. 与“别人解释”的一致性：DCM/CCM 只是更细的分段 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#4-%e4%b8%8e%e5%88%ab%e4%ba%ba%e8%a7%a3%e9%87%8a%e7%9a%84%e4%b8%80%e8%87%b4%e6%80%a7dcmccm-%e5%8f%aa%e6%98%af%e6%9b%b4%e7%bb%86%e7%9a%84%e5%88%86%e6%ae%b5" aria-label="锚点">#</a></span></h3><p>常见资料会说：</p>
+<ol>
+<li>低速：反电势不足，不导通 → 无明显电流/能量交换</li>
+<li>中速：反电势略高于母线，二极管断续导通（DCM） → 平均电流随速度增大</li>
+<li>更高速：电流转为连续（CCM），随后电流幅值变化变慢甚至趋于常数 → 扭矩先增大后减小</li>
+</ol>
+<p>这与“母线钳位 + 电感限流 + $T=P/\omega$”的解释是同一物理过程的不同表述。</p>
+<h3 id="5-过压风险与母线电压上升的估算用于工程评估" class="relative group">5. 过压风险与母线电压上升的估算（用于工程评估） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#5-%e8%bf%87%e5%8e%8b%e9%a3%8e%e9%99%a9%e4%b8%8e%e6%af%8d%e7%ba%bf%e7%94%b5%e5%8e%8b%e4%b8%8a%e5%8d%87%e7%9a%84%e4%bc%b0%e7%ae%97%e7%94%a8%e4%ba%8e%e5%b7%a5%e7%a8%8b%e8%af%84%e4%bc%b0" aria-label="锚点">#</a></span></h3><blockquote>
+<p>仅用 $k_e, k_t, V_{dc}, C$ 不能唯一确定过压幅度，还需惯量 $J$、速度变化（或回灌电流/持续时间）、以及能量去向（电源是否吸收/是否有制动电阻）。</p>
+</blockquote>
+<h4 id="51-保守上界转动动能按比例充入母线电容" class="relative group">5.1 保守上界：转动动能（按比例）充入母线电容 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#51-%e4%bf%9d%e5%ae%88%e4%b8%8a%e7%95%8c%e8%bd%ac%e5%8a%a8%e5%8a%a8%e8%83%bd%e6%8c%89%e6%af%94%e4%be%8b%e5%85%85%e5%85%a5%e6%af%8d%e7%ba%bf%e7%94%b5%e5%ae%b9" aria-label="锚点">#</a></span></h4><p>机械能变化：</p>
+$$
+\Delta E_{mech}=\frac{1}{2}J(\omega_0^2-\omega_1^2)
+$$<p>假设其中比例 $\eta$（0~1）进入电容：</p>
+$$
+\frac{1}{2}C(V_2^2-V_1^2)=\eta\Delta E_{mech}
+$$<p>得到</p>
+$$
+V_2=\sqrt{V_1^2+\frac{\eta J(\omega_0^2-\omega_1^2)}{C}},\quad \Delta V=V_2-V_1
+$$<ul>
+<li>取 $\eta=1$ 得到最坏情况上界。</li>
+</ul>
+<h4 id="52-电流法用回灌电流积分估算" class="relative group">5.2 电流法：用回灌电流积分估算 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#52-%e7%94%b5%e6%b5%81%e6%b3%95%e7%94%a8%e5%9b%9e%e7%81%8c%e7%94%b5%e6%b5%81%e7%a7%af%e5%88%86%e4%bc%b0%e7%ae%97" aria-label="锚点">#</a></span></h4><p>若能估到/测到回灌直流电流 $I_{dc}(t)$：</p>
+$$
+\Delta V \approx \frac{1}{C}\int I_{dc}(t)\,dt
+$$<p>更贴近瞬态评估，但需要电流曲线或限流模型。</p>
+<h3 id="6-工程防护建议母线过压与失控再生" class="relative group">6. 工程防护建议（母线过压与失控再生） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#6-%e5%b7%a5%e7%a8%8b%e9%98%b2%e6%8a%a4%e5%bb%ba%e8%ae%ae%e6%af%8d%e7%ba%bf%e8%bf%87%e5%8e%8b%e4%b8%8e%e5%a4%b1%e6%8e%a7%e5%86%8d%e7%94%9f" aria-label="锚点">#</a></span></h3><ul>
+<li><strong>制动斩波器 + 制动电阻</strong>：母线超限时快速耗散回灌能量（最常用、最直接）。</li>
+<li><strong>允许能量回馈的前端</strong>：把能量回送到电池/电网，而不是只靠电容承受。</li>
+<li><strong>软切换策略</strong>：从有源控制切到 free-wheeling 前先把 $i_q$ 收敛到 0，并控制过渡，减少回灌冲击。</li>
+<li><strong>过压策略联动</strong>：检测 $V_{dc}$ 上升趋势提前开斩波/限速，而不是等到硬件保护动作。</li>
+<li><strong>容量/耐压复核</strong>：提升 $C$ 或耐压仅能缓冲，不能替代能量释放通道。</li>
+</ul>
+<h3 id="7-需要哪些参数才能把拐点与过压算到数值" class="relative group">7. 需要哪些参数才能把拐点与过压“算到数值” <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#7-%e9%9c%80%e8%a6%81%e5%93%aa%e4%ba%9b%e5%8f%82%e6%95%b0%e6%89%8d%e8%83%bd%e6%8a%8a%e6%8b%90%e7%82%b9%e4%b8%8e%e8%bf%87%e5%8e%8b%e7%ae%97%e5%88%b0%e6%95%b0%e5%80%bc" aria-label="锚点">#</a></span></h3><p>若要进一步计算：</p>
+<ul>
+<li>阈值速度 $\omega_{th}$：需要明确 $k_e$ 的单位/定义（相峰值、线 RMS、Vrms/krpm 等）</li>
+<li>母线电压上升量：至少还需要 $J$、$\omega_0\to\omega_1$ 或 $I_{dc}(t)$ / 回灌持续时间、以及母线是否“硬”（电池/电源可吸收）</li>
+<li>扭矩峰值位置：需要 $R, L, p$（极对数）以及母线吸能能力（电容/电池/制动电阻）</li>
+</ul>
+<h3 id="快速结论" class="relative group">快速结论 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%e5%bf%ab%e9%80%9f%e7%bb%93%e8%ae%ba" aria-label="锚点">#</a></span></h3><ul>
+<li><strong>有扭矩</strong>：只要存在二极管/电容等回路，就会出现再生电流与制动扭矩。</li>
+<li><strong>先增后减</strong>：阈值后 DCM 导通角扩大 → 扭矩上升；更高速电感限流 + $T=P/\omega$ → 扭矩下降并趋近 0。</li>
+<li><strong>过压风险</strong>：母线只能靠电容吸能时最严重，应配置制动斩波/可回馈前端或软切换策略。</li>
+</ul>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+
+      
+
+      
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="//localhost:1313/zh-hans/posts/second-post/second/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >第二篇</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="回到顶部"
+            title="回到顶部"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+    <nav class="pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex list-none flex-col sm:flex-row">
+        
+          
+          <li class="group mb-1 text-end sm:mb-0 sm:me-7 sm:last:me-0">
+            
+              <a
+                href="/zh-hans/tags/"
+                title="Tags"
+                
+                
+                ><span
+                    class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                    >标签</span
+                  >
+                </a
+              >
+            
+          </li>
+        
+      </ul>
+    </nav>
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            © 2024 Congo contributors
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a> 强力驱动
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="切换为深色模式"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="切换为浅色模式"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 z-50 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="//localhost:1313/zh-hans/"
+>
+  <div
+    id="search-modal"
+    class="top-20 mx-auto flex min-h-0 w-full max-w-3xl flex-col rounded-md border border-neutral-200 bg-neutral shadow-lg dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex flex-none items-center justify-between px-2">
+      <form class="flex min-w-0 flex-auto items-center">
+        <div class="flex h-8 w-8 items-center justify-center text-neutral-400">
+          <span class="icon relative inline-block px-1 align-text-bottom"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="mx-1 flex h-12 flex-auto appearance-none bg-transparent focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex h-8 w-8 items-center justify-center text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)"
+      >
+        <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto overflow-auto px-2">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+</html>
