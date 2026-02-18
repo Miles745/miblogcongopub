@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>文档 on BD Motor Control</title>
-    <link>//localhost:1313/zh-hans/posts/</link>
+    <link>/zh-hans/posts/</link>
     <description>Recent content in 文档 on BD Motor Control</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2024 Congo contributors</copyright>
     <lastBuildDate>Sun, 15 Feb 2026 16:31:20 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/zh-hans/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/zh-hans/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PMSM为什么在Free Wheeling时扭矩先增后减</title>
-      <link>//localhost:1313/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</link>
+      <link>/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</link>
       <pubDate>Sun, 15 Feb 2026 16:31:20 +0800</pubDate>
-      <guid>//localhost:1313/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</guid>
+      <guid>/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</guid>
       <description>解释 free-wheeling 回灌与制动扭矩“先增后减”的原因，并给出工程侧的判断与防护思路。</description>
     </item>
     <item>
       <title>第二篇</title>
-      <link>//localhost:1313/zh-hans/posts/second/</link>
+      <link>/zh-hans/posts/second/</link>
       <pubDate>Sun, 15 Feb 2026 16:31:20 +0800</pubDate>
-      <guid>//localhost:1313/zh-hans/posts/second/</guid>
+      <guid>/zh-hans/posts/second/</guid>
       <description>用于测试排版与多语言的一篇短文（现在列表里也会显示副标题和缩略图）。</description>
     </item>
   </channel>

@@ -6,17 +6,17 @@
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</loc>
+            <loc>/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</loc>
             <lastmod>2026-02-15T16:31:20+08:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/"
+              href="/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/"
+              href="/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/"
               />
           </url>
     
@@ -27,51 +27,51 @@
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/posts/second/</loc>
+            <loc>/zh-hans/posts/second/</loc>
             <lastmod>2026-02-15T16:31:20+08:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/posts/second/"
+              href="/posts/second/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/posts/second/"
+              href="/zh-hans/posts/second/"
               />
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/</loc>
+            <loc>/zh-hans/</loc>
             <lastmod>2026-02-15T16:31:20+08:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/"
+              href="/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/"
+              href="/zh-hans/"
               />
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/posts/</loc>
+            <loc>/zh-hans/posts/</loc>
             <lastmod>2026-02-15T16:31:20+08:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/posts/"
+              href="/posts/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/posts/"
+              href="/zh-hans/posts/"
               />
           </url>
     
@@ -86,51 +86,51 @@
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/about/</loc>
+            <loc>/zh-hans/about/</loc>
             <lastmod>2020-08-14T00:00:00+00:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/about/"
+              href="/about/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/about/"
+              href="/zh-hans/about/"
               />
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/samples/</loc>
+            <loc>/zh-hans/samples/</loc>
             <lastmod>2025-05-04T00:00:00+00:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/samples/"
+              href="/samples/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/samples/"
+              href="/zh-hans/samples/"
               />
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/samples/icons/</loc>
+            <loc>/zh-hans/samples/icons/</loc>
             <lastmod>2025-05-04T00:00:00+00:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/samples/icons/"
+              href="/samples/icons/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/samples/icons/"
+              href="/zh-hans/samples/icons/"
               />
           </url>
     
@@ -141,17 +141,17 @@
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/samples/markdown/</loc>
+            <loc>/zh-hans/samples/markdown/</loc>
             <lastmod>2019-03-11T00:00:00+00:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/samples/markdown/"
+              href="/samples/markdown/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/samples/markdown/"
+              href="/zh-hans/samples/markdown/"
               />
           </url>
     
@@ -170,17 +170,17 @@
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/samples/rich-content/</loc>
+            <loc>/zh-hans/samples/rich-content/</loc>
             <lastmod>2019-03-10T00:00:00+00:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/samples/rich-content/"
+              href="/samples/rich-content/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/samples/rich-content/"
+              href="/zh-hans/samples/rich-content/"
               />
           </url>
     
@@ -199,17 +199,17 @@
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/samples/mathematical-notation/</loc>
+            <loc>/zh-hans/samples/mathematical-notation/</loc>
             <lastmod>2019-03-08T00:00:00+00:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/samples/mathematical-notation/"
+              href="/samples/mathematical-notation/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/samples/mathematical-notation/"
+              href="/zh-hans/samples/mathematical-notation/"
               />
           </url>
     
@@ -224,34 +224,34 @@
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/samples/charts/</loc>
+            <loc>/zh-hans/samples/charts/</loc>
             <lastmod>2019-03-06T00:00:00+00:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/samples/charts/"
+              href="/samples/charts/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/samples/charts/"
+              href="/zh-hans/samples/charts/"
               />
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/samples/diagrams-flowcharts/</loc>
+            <loc>/zh-hans/samples/diagrams-flowcharts/</loc>
             <lastmod>2019-03-06T00:00:00+00:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/samples/diagrams-flowcharts/"
+              href="/samples/diagrams-flowcharts/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/samples/diagrams-flowcharts/"
+              href="/zh-hans/samples/diagrams-flowcharts/"
               />
           </url>
     
@@ -260,17 +260,17 @@
   
     
       <url>
-            <loc>//localhost:1313/zh-hans/samples/emoji/</loc>
+            <loc>/zh-hans/samples/emoji/</loc>
             <lastmod>2019-03-05T00:00:00+00:00</lastmod>
             <xhtml:link
               rel="alternate"
               hreflang="en"
-              href="//localhost:1313/samples/emoji/"
+              href="/samples/emoji/"
               />
             <xhtml:link
               rel="alternate"
               hreflang="zh-hans"
-              href="//localhost:1313/zh-hans/samples/emoji/"
+              href="/zh-hans/samples/emoji/"
               />
           </url>
     

@@ -2,88 +2,88 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>欢迎来到BD电机控制实验室! :tada: on BD Motor Control</title>
-    <link>//localhost:1313/zh-hans/</link>
+    <link>/zh-hans/</link>
     <description>Recent content in 欢迎来到BD电机控制实验室! :tada: on BD Motor Control</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2024 Congo contributors</copyright>
     <lastBuildDate>Sun, 15 Feb 2026 16:31:20 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/zh-hans/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/zh-hans/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PMSM为什么在Free Wheeling时扭矩先增后减</title>
-      <link>//localhost:1313/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</link>
+      <link>/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</link>
       <pubDate>Sun, 15 Feb 2026 16:31:20 +0800</pubDate>
-      <guid>//localhost:1313/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</guid>
+      <guid>/zh-hans/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</guid>
       <description>解释 free-wheeling 回灌与制动扭矩“先增后减”的原因，并给出工程侧的判断与防护思路。</description>
     </item>
     <item>
       <title>第二篇</title>
-      <link>//localhost:1313/zh-hans/posts/second/</link>
+      <link>/zh-hans/posts/second/</link>
       <pubDate>Sun, 15 Feb 2026 16:31:20 +0800</pubDate>
-      <guid>//localhost:1313/zh-hans/posts/second/</guid>
+      <guid>/zh-hans/posts/second/</guid>
       <description>用于测试排版与多语言的一篇短文（现在列表里也会显示副标题和缩略图）。</description>
     </item>
     <item>
       <title>关于作者</title>
-      <link>//localhost:1313/zh-hans/about/</link>
+      <link>/zh-hans/about/</link>
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/zh-hans/about/</guid>
+      <guid>/zh-hans/about/</guid>
       <description></description>
     </item>
     <item>
       <title>图标</title>
-      <link>//localhost:1313/zh-hans/samples/icons/</link>
+      <link>/zh-hans/samples/icons/</link>
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/zh-hans/samples/icons/</guid>
+      <guid>/zh-hans/samples/icons/</guid>
       <description></description>
     </item>
     <item>
       <title>Markdown</title>
-      <link>//localhost:1313/zh-hans/samples/markdown/</link>
+      <link>/zh-hans/samples/markdown/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/zh-hans/samples/markdown/</guid>
+      <guid>/zh-hans/samples/markdown/</guid>
       <description>&lt;p&gt;这篇文章提供了一些在Congo中可用的基本Markdown格式的示例，同时展示了如何装饰一些基本的HTML元素。&lt;/p&gt;</description>
     </item>
     <item>
       <title>富文本</title>
-      <link>//localhost:1313/zh-hans/samples/rich-content/</link>
+      <link>/zh-hans/samples/rich-content/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/zh-hans/samples/rich-content/</guid>
+      <guid>/zh-hans/samples/rich-content/</guid>
       <description>这是一个 &lt;em&gt;富&lt;/em&gt; 文本的 &lt;em&gt;简介&lt;/em&gt;</description>
     </item>
     <item>
       <title>占位符文本</title>
-      <link>//localhost:1313/zh-hans/samples/placeholder-text/</link>
+      <link>/zh-hans/samples/placeholder-text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/zh-hans/samples/placeholder-text/</guid>
+      <guid>/zh-hans/samples/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>数学符号</title>
-      <link>//localhost:1313/zh-hans/samples/mathematical-notation/</link>
+      <link>/zh-hans/samples/mathematical-notation/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/zh-hans/samples/mathematical-notation/</guid>
+      <guid>/zh-hans/samples/mathematical-notation/</guid>
       <description>&lt;p&gt;KaTeX可以用于在文章中呈现数学符号。&lt;/p&gt;</description>
     </item>
     <item>
       <title>表格</title>
-      <link>//localhost:1313/zh-hans/samples/charts/</link>
+      <link>/zh-hans/samples/charts/</link>
       <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/zh-hans/samples/charts/</guid>
+      <guid>/zh-hans/samples/charts/</guid>
       <description>Congo使用chart.js来提供强大的表格支持和数据可视化。</description>
     </item>
     <item>
       <title>图表和流程图</title>
-      <link>//localhost:1313/zh-hans/samples/diagrams-flowcharts/</link>
+      <link>/zh-hans/samples/diagrams-flowcharts/</link>
       <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/zh-hans/samples/diagrams-flowcharts/</guid>
+      <guid>/zh-hans/samples/diagrams-flowcharts/</guid>
       <description>使用Mermaid来绘制图表和流程图是非常简单的</description>
     </item>
     <item>
       <title>表情符号 :parachute:</title>
-      <link>//localhost:1313/zh-hans/samples/emoji/</link>
+      <link>/zh-hans/samples/emoji/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/zh-hans/samples/emoji/</guid>
+      <guid>/zh-hans/samples/emoji/</guid>
       <description>📖🏞️🧗🏽🐉🧙🏽‍♂️🧚🏽👸</description>
     </item>
   </channel>

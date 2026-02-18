@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Welcome to the offical BD Motor Control Lab! :tada: on BD Motor Control</title>
-    <link>//localhost:1313/</link>
+    <link>/</link>
     <description>Recent content in Welcome to the offical BD Motor Control Lab! :tada: on BD Motor Control</description>
     <generator>Hugo</generator>
     <language>en-AU</language>
     <copyright>&amp;copy; 2024 Congo contributors</copyright>
     <lastBuildDate>Sun, 15 Feb 2026 16:31:20 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Second</title>
-      <link>//localhost:1313/posts/second/</link>
+      <link>/posts/second/</link>
       <pubDate>Sun, 15 Feb 2026 16:31:20 +0800</pubDate>
-      <guid>//localhost:1313/posts/second/</guid>
+      <guid>/posts/second/</guid>
       <description>A quick test post with headings (and now a proper list-card summary and thumbnail).</description>
     </item>
     <item>
       <title>Why PMSM Free-Wheeling Torque Rises Then Falls</title>
-      <link>//localhost:1313/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</link>
+      <link>/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</link>
       <pubDate>Sun, 15 Feb 2026 16:31:20 +0800</pubDate>
-      <guid>//localhost:1313/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</guid>
+      <guid>/posts/pmsm%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8free-wheeling%E6%97%B6%E6%89%AD%E7%9F%A9%E5%85%88%E5%A2%9E%E5%90%8E%E5%87%8F/</guid>
       <description>English version coming soon.</description>
     </item>
     <item>
       <title>About me</title>
-      <link>//localhost:1313/about/</link>
+      <link>/about/</link>
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/about/</guid>
+      <guid>/about/</guid>
       <description></description>
     </item>
     <item>
       <title>Icons</title>
-      <link>//localhost:1313/samples/icons/</link>
+      <link>/samples/icons/</link>
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/samples/icons/</guid>
+      <guid>/samples/icons/</guid>
       <description></description>
     </item>
     <item>
       <title>Markdown</title>
-      <link>//localhost:1313/samples/markdown/</link>
+      <link>/samples/markdown/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/samples/markdown/</guid>
+      <guid>/samples/markdown/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown formatting that can be used in Congo, also it shows how some basic HTML elements are decorated.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Rich Content</title>
-      <link>//localhost:1313/samples/rich-content/</link>
+      <link>/samples/rich-content/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/samples/rich-content/</guid>
+      <guid>/samples/rich-content/</guid>
       <description>This is an &lt;em&gt;example&lt;/em&gt; of a &lt;strong&gt;rich&lt;/strong&gt; content summary.</description>
     </item>
     <item>
       <title>Placeholder Text</title>
-      <link>//localhost:1313/samples/placeholder-text/</link>
+      <link>/samples/placeholder-text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/samples/placeholder-text/</guid>
+      <guid>/samples/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mathematical notation</title>
-      <link>//localhost:1313/samples/mathematical-notation/</link>
+      <link>/samples/mathematical-notation/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/samples/mathematical-notation/</guid>
+      <guid>/samples/mathematical-notation/</guid>
       <description>&lt;p&gt;KaTeX can be used to render mathematical notation within articles.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Charts</title>
-      <link>//localhost:1313/samples/charts/</link>
+      <link>/samples/charts/</link>
       <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/samples/charts/</guid>
+      <guid>/samples/charts/</guid>
       <description>Congo includes Chart.js for powerful charts and data visualisations.</description>
     </item>
     <item>
       <title>Diagrams and Flowcharts</title>
-      <link>//localhost:1313/samples/diagrams-flowcharts/</link>
+      <link>/samples/diagrams-flowcharts/</link>
       <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/samples/diagrams-flowcharts/</guid>
+      <guid>/samples/diagrams-flowcharts/</guid>
       <description>It&amp;rsquo;s easy to add diagrams and flowcharts to articles using Mermaid.</description>
     </item>
     <item>
       <title>Emoji :parachute:</title>
-      <link>//localhost:1313/samples/emoji/</link>
+      <link>/samples/emoji/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/samples/emoji/</guid>
+      <guid>/samples/emoji/</guid>
       <description>📖🏞️🧗🏽🐉🧙🏽‍♂️🧚🏽👸</description>
     </item>
     <item>
       <title>advanced</title>
-      <link>//localhost:1313/tags/advanced/_index.zh-cn/</link>
+      <link>/tags/advanced/_index.zh-cn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/advanced/_index.zh-cn/</guid>
+      <guid>/tags/advanced/_index.zh-cn/</guid>
       <description></description>
     </item>
     <item>
       <title>Tags</title>
-      <link>//localhost:1313/tags/_index.zh-cn/</link>
+      <link>/tags/_index.zh-cn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/_index.zh-cn/</guid>
+      <guid>/tags/_index.zh-cn/</guid>
       <description></description>
     </item>
   </channel>

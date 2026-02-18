@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Latin on BD Motor Control</title>
-    <link>//localhost:1313/zh-hans/tags/latin/</link>
+    <link>/zh-hans/tags/latin/</link>
     <description>Recent content in Latin on BD Motor Control</description>
     <generator>Hugo</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2024 Congo contributors</copyright>
     <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/zh-hans/tags/latin/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/zh-hans/tags/latin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>占位符文本</title>
-      <link>//localhost:1313/zh-hans/samples/placeholder-text/</link>
+      <link>/zh-hans/samples/placeholder-text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/zh-hans/samples/placeholder-text/</guid>
+      <guid>/zh-hans/samples/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
     </item>
   </channel>
