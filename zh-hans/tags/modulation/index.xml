@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Modulation on BD Motor Control</title>
+    <link>https://miles745.github.io/miblogcongopub/zh-hans/tags/modulation/</link>
+    <description>Recent content in Modulation on BD Motor Control</description>
+    <generator>Hugo</generator>
+    <language>zh-Hans</language>
+    <copyright>&amp;copy; 2024 Congo contributors</copyright>
+    <lastBuildDate>Sun, 22 Feb 2026 23:30:00 +0800</lastBuildDate>
+    <atom:link href="https://miles745.github.io/miblogcongopub/zh-hans/tags/modulation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PWM最小脉冲抑制与跨周期修正</title>
+      <link>https://miles745.github.io/miblogcongopub/zh-hans/posts/pwm_min_pulse_correction/</link>
+      <pubDate>Sun, 22 Feb 2026 23:30:00 +0800</pubDate>
+      <guid>https://miles745.github.io/miblogcongopub/zh-hans/posts/pwm_min_pulse_correction/</guid>
+      <description>从约束建模、两级抑制到跨周期修正，解释为什么该方法能在边界工况下保持输出可用与过渡平滑。</description>
+    </item>
+  </channel>
+</rss>

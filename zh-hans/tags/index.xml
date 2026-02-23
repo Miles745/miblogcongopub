@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2024 Congo contributors</copyright>
-    <lastBuildDate>Sun, 15 Feb 2026 16:31:20 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 22 Feb 2026 23:30:00 +0800</lastBuildDate>
     <atom:link href="https://miles745.github.io/miblogcongopub/zh-hans/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Modulation</title>
+      <link>https://miles745.github.io/miblogcongopub/zh-hans/tags/modulation/</link>
+      <pubDate>Sun, 22 Feb 2026 23:30:00 +0800</pubDate>
+      <guid>https://miles745.github.io/miblogcongopub/zh-hans/tags/modulation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PWM</title>
+      <link>https://miles745.github.io/miblogcongopub/zh-hans/tags/pwm/</link>
+      <pubDate>Sun, 22 Feb 2026 23:30:00 +0800</pubDate>
+      <guid>https://miles745.github.io/miblogcongopub/zh-hans/tags/pwm/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Pmsm</title>
       <link>https://miles745.github.io/miblogcongopub/zh-hans/tags/pmsm/</link>
