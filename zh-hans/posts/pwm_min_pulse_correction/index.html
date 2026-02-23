@@ -143,7 +143,7 @@
     "keywords": ["PWM","Modulation"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "102"
+    "wordCount": "125"
   }
   </script>
     
@@ -201,17 +201,17 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="https://miles745.github.io/miblogcongopub/lib/katex/katex.min.e189fd0238811989c3646dcebda8bc0cfb1ec791b79e60cf9d18f05a49c8a016.css"
+    href="/miblogcongopub/lib/katex/katex.min.e189fd0238811989c3646dcebda8bc0cfb1ec791b79e60cf9d18f05a49c8a016.css"
     integrity="sha256-4Yn9AjiBGYnDZG3Ovai8DPsex5G3nmDPnRjwWknIoBY="
   />
   
   
-  <script defer src="https://miles745.github.io/miblogcongopub/lib/katex/katex.min.6b909443e6c8f6e5d24cc4872fe909a54770762047ae95e3f34f55ec2e6f6c3a.js" integrity="sha256-a5CUQ&#43;bI9uXSTMSHL&#43;kJpUdwdiBHrpXj809V7C5vbDo="></script>
+  <script defer src="/miblogcongopub/lib/katex/katex.min.6b909443e6c8f6e5d24cc4872fe909a54770762047ae95e3f34f55ec2e6f6c3a.js" integrity="sha256-a5CUQ&#43;bI9uXSTMSHL&#43;kJpUdwdiBHrpXj809V7C5vbDo="></script>
   
   
   <script
     defer
-    src="https://miles745.github.io/miblogcongopub/lib/katex/auto-render.min.bb53eb953394531aae36fdd537065c4244eb8542901a3ce914601d932675b8ac.js"
+    src="/miblogcongopub/lib/katex/auto-render.min.bb53eb953394531aae36fdd537065c4244eb8542901a3ce914601d932675b8ac.js"
     integrity="sha256-u1PrlTOUUxquNv3VNwZcQkTrhUKQGjzpFGAdkyZ1uKw="
     onload="renderMathInElement(document.body, {
       delimiters: [
@@ -791,18 +791,7 @@
 <li>若宽度可执行，再进入下一步。</li>
 </ul>
 <p>这一层的价值是先消除“必然失败”的脉冲，降低后续链路不确定性。</p>
-<p>
-
-
-
-
-
-
-  
-  
-<figure><img src="/posts/pwm_min_pulse_correction/blog_minpulse_suppress.svg" alt="最小脉冲抑制示意" class="mx-auto my-0 rounded-md" />
-</figure>
-</p>
+<figure><img src="/miblogcongopub/posts/pwm_min_pulse_correction/blog_minpulse_suppress.svg" alt="最小脉冲抑制示意" class="mx-auto my-0 rounded-md" /></figure>
 <h3 id="22-第二级跨周期-incoming-检查" class="relative group">2.2 第二级：跨周期 incoming 检查 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#22-%e7%ac%ac%e4%ba%8c%e7%ba%a7%e8%b7%a8%e5%91%a8%e6%9c%9f-incoming-%e6%a3%80%e6%9f%a5" aria-label="锚点">#</a></span></h3><p>对“下一周期起始脉冲”不单独判断，而是与“当前周期末剩余窗口”拼接后判断。</p>
 <p>换句话说，使用两周期视角（抽象表达）：</p>
 $$
@@ -823,18 +812,7 @@ $$<p>其中：</p>
 <li>\(W_{ref}\)：在同输入、同前态下，不应用修正时的回放宽度。</li>
 </ul>
 <p>当 \(\Delta>0\)，表示修正带来了<strong>净有效宽度收益</strong>（等价于有效占空比提升）。</p>
-<p>
-
-
-
-
-
-
-  
-  
-<figure><img src="/posts/pwm_min_pulse_correction/blog_correction_window.svg" alt="跨周期修正示意" class="mx-auto my-0 rounded-md" />
-</figure>
-</p>
+<figure><img src="/miblogcongopub/posts/pwm_min_pulse_correction/blog_correction_window.svg" alt="跨周期修正示意" class="mx-auto my-0 rounded-md" /></figure>
 <h2 id="3-为什么说它有效" class="relative group">3. 为什么说它有效 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-%e4%b8%ba%e4%bb%80%e4%b9%88%e8%af%b4%e5%ae%83%e6%9c%89%e6%95%88" aria-label="锚点">#</a></span></h2><h3 id="31-有效性不是更激进而是更可执行" class="relative group">3.1 有效性不是“更激进”，而是“更可执行” <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#31-%e6%9c%89%e6%95%88%e6%80%a7%e4%b8%8d%e6%98%af%e6%9b%b4%e6%bf%80%e8%bf%9b%e8%80%8c%e6%98%af%e6%9b%b4%e5%8f%af%e6%89%a7%e8%a1%8c" aria-label="锚点">#</a></span></h3><p>该方法在每一步都先做可行性筛选：</p>
 <ul>
 <li>先抑制必然失效脉冲；</li>
@@ -850,9 +828,17 @@ $$<p>其中：</p>
 <li>哪些场景虽触发修正但净收益为 0（同样有价值，因为它意味着算法在保守边界内运行）。</li>
 </ul>
 <h2 id="4-实践建议个人记录口径" class="relative group">4. 实践建议（个人记录口径） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#4-%e5%ae%9e%e8%b7%b5%e5%bb%ba%e8%ae%ae%e4%b8%aa%e4%ba%ba%e8%ae%b0%e5%bd%95%e5%8f%a3%e5%be%84" aria-label="锚点">#</a></span></h2><p>作为个人技术笔记，建议固定以下记录模板：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Case=&lt;名称&gt;; Seq=[u(k),u(k+1)]; PrevState=&lt;固定前态&gt;;
-</span></span><span class="line"><span class="cl">W_act=&lt;ticks&gt;; W_ref=&lt;ticks&gt;; Delta=&lt;ticks&gt;; DeltaDuty=&lt;%&gt;
-</span></span></code></pre></div><p>并坚持两条纪律：</p>
+$$
+\begin{aligned}
+\mathrm{Case} &= \langle\text{名称}\rangle; \\
+\mathrm{Seq} &= [u(k),\,u(k+1)]; \\
+\mathrm{PrevState} &= \langle\text{固定前态}\rangle; \\
+W_{act} &= \langle\text{ticks}\rangle; \\
+W_{ref} &= \langle\text{ticks}\rangle; \\
+\Delta &= \langle\text{ticks}\rangle; \\
+\Delta\text{Duty} &= \langle\%\rangle.
+\end{aligned}
+$$<p>并坚持两条纪律：</p>
 <ol>
 <li>只在“同输入 + 同前态”下比较；</li>
 <li>先看可执行性，再看收益大小。</li>

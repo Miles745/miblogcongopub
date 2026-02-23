@@ -143,7 +143,7 @@
     "keywords": ["PWM","Modulation"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "574"
+    "wordCount": "597"
   }
   </script>
     
@@ -201,17 +201,17 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="https://miles745.github.io/miblogcongopub/lib/katex/katex.min.e189fd0238811989c3646dcebda8bc0cfb1ec791b79e60cf9d18f05a49c8a016.css"
+    href="/miblogcongopub/lib/katex/katex.min.e189fd0238811989c3646dcebda8bc0cfb1ec791b79e60cf9d18f05a49c8a016.css"
     integrity="sha256-4Yn9AjiBGYnDZG3Ovai8DPsex5G3nmDPnRjwWknIoBY="
   />
   
   
-  <script defer src="https://miles745.github.io/miblogcongopub/lib/katex/katex.min.6b909443e6c8f6e5d24cc4872fe909a54770762047ae95e3f34f55ec2e6f6c3a.js" integrity="sha256-a5CUQ&#43;bI9uXSTMSHL&#43;kJpUdwdiBHrpXj809V7C5vbDo="></script>
+  <script defer src="/miblogcongopub/lib/katex/katex.min.6b909443e6c8f6e5d24cc4872fe909a54770762047ae95e3f34f55ec2e6f6c3a.js" integrity="sha256-a5CUQ&#43;bI9uXSTMSHL&#43;kJpUdwdiBHrpXj809V7C5vbDo="></script>
   
   
   <script
     defer
-    src="https://miles745.github.io/miblogcongopub/lib/katex/auto-render.min.bb53eb953394531aae36fdd537065c4244eb8542901a3ce914601d932675b8ac.js"
+    src="/miblogcongopub/lib/katex/auto-render.min.bb53eb953394531aae36fdd537065c4244eb8542901a3ce914601d932675b8ac.js"
     integrity="sha256-u1PrlTOUUxquNv3VNwZcQkTrhUKQGjzpFGAdkyZ1uKw="
     onload="renderMathInElement(document.body, {
       delimiters: [
@@ -791,18 +791,7 @@
 <li>If it is executable, proceed to the next stage.</li>
 </ul>
 <p>This stage removes pulses that are guaranteed to fail and reduces uncertainty downstream.</p>
-<p>
-
-
-
-
-
-
-  
-  
-<figure><img src="/posts/pwm_min_pulse_correction/blog_minpulse_suppress.svg" alt="Minimum pulse suppression" class="mx-auto my-0 rounded-md" />
-</figure>
-</p>
+<figure><img src="/miblogcongopub/posts/pwm_min_pulse_correction/blog_minpulse_suppress.svg" alt="Minimum pulse suppression" class="mx-auto my-0 rounded-md" /></figure>
 <h3 id="22-stage-2-cross-cycle-incoming-check" class="relative group">2.2 Stage 2: cross-cycle incoming check <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#22-stage-2-cross-cycle-incoming-check" aria-label="Anchor">#</a></span></h3><p>For the “incoming pulse at the beginning of the next cycle”, do not judge it in isolation. Instead, concatenate it with the remaining tail window of the current cycle.</p>
 <p>In other words, use a two-cycle view (abstractly):</p>
 $$
@@ -823,18 +812,7 @@ $$<p>where:</p>
 <li>\(W_{ref}\): replay width under the same input and same previous state, without correction.</li>
 </ul>
 <p>When \(\Delta>0\), the correction brings a <strong>net gain in effective width</strong> (equivalently, an increase in effective duty).</p>
-<p>
-
-
-
-
-
-
-  
-  
-<figure><img src="/posts/pwm_min_pulse_correction/blog_correction_window.svg" alt="Cross-cycle correction" class="mx-auto my-0 rounded-md" />
-</figure>
-</p>
+<figure><img src="/miblogcongopub/posts/pwm_min_pulse_correction/blog_correction_window.svg" alt="Cross-cycle correction" class="mx-auto my-0 rounded-md" /></figure>
 <h2 id="3-why-it-works" class="relative group">3. Why it works <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-why-it-works" aria-label="Anchor">#</a></span></h2><h3 id="31-effectiveness-is-more-executable-not-more-aggressive" class="relative group">3.1 Effectiveness is “more executable”, not “more aggressive” <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#31-effectiveness-is-more-executable-not-more-aggressive" aria-label="Anchor">#</a></span></h3><p>Each stage starts with feasibility filtering:</p>
 <ul>
 <li>suppress pulses that are guaranteed to be invalid,</li>
@@ -850,9 +828,17 @@ $$<p>where:</p>
 <li>which scenarios trigger correction but still have zero net gain (still useful—it indicates conservative operation at the edge).</li>
 </ul>
 <h2 id="4-practical-note-personal-logging" class="relative group">4. Practical note (personal logging) <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#4-practical-note-personal-logging" aria-label="Anchor">#</a></span></h2><p>For a personal engineering notebook, a consistent record format helps:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Case=&lt;name&gt;; Seq=[u(k),u(k+1)]; PrevState=&lt;fixed-prev-state&gt;;
-</span></span><span class="line"><span class="cl">W_act=&lt;ticks&gt;; W_ref=&lt;ticks&gt;; Delta=&lt;ticks&gt;; DeltaDuty=&lt;%&gt;
-</span></span></code></pre></div><p>Two simple rules:</p>
+$$
+\begin{aligned}
+\mathrm{Case} &= \langle\text{name}\rangle; \\
+\mathrm{Seq} &= [u(k),\,u(k+1)]; \\
+\mathrm{PrevState} &= \langle\text{fixed-prev-state}\rangle; \\
+W_{act} &= \langle\text{ticks}\rangle; \\
+W_{ref} &= \langle\text{ticks}\rangle; \\
+\Delta &= \langle\text{ticks}\rangle; \\
+\Delta\text{Duty} &= \langle\%\rangle.
+\end{aligned}
+$$<p>Two simple rules:</p>
 <ol>
 <li>Compare only under “same input + same previous state”.</li>
 <li>Check executability first, then the size of the gain.</li>
