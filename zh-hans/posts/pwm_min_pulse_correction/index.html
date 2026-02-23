@@ -196,6 +196,155 @@
 
 
 
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="https://miles745.github.io/miblogcongopub/lib/katex/katex.min.e189fd0238811989c3646dcebda8bc0cfb1ec791b79e60cf9d18f05a49c8a016.css"
+    integrity="sha256-4Yn9AjiBGYnDZG3Ovai8DPsex5G3nmDPnRjwWknIoBY="
+  />
+  
+  
+  <script defer src="https://miles745.github.io/miblogcongopub/lib/katex/katex.min.6b909443e6c8f6e5d24cc4872fe909a54770762047ae95e3f34f55ec2e6f6c3a.js" integrity="sha256-a5CUQ&#43;bI9uXSTMSHL&#43;kJpUdwdiBHrpXj809V7C5vbDo="></script>
+  
+  
+  <script
+    defer
+    src="https://miles745.github.io/miblogcongopub/lib/katex/auto-render.min.bb53eb953394531aae36fdd537065c4244eb8542901a3ce914601d932675b8ac.js"
+    integrity="sha256-u1PrlTOUUxquNv3VNwZcQkTrhUKQGjzpFGAdkyZ1uKw="
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   // block
+        {left: '$$', right: '$$', display: true},     // block
+        {left: '\\(', right: '\\)', display: false},  // inline
+      ],
+      throwOnError : false
+    });"
+  ></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
 
   
   
@@ -617,7 +766,9 @@
         </div>
       
       <div class="min-h-0 min-w-0 max-w-prose grow">
-        <blockquote>
+        
+
+<blockquote>
 <p>这是一篇方法论文章，目标是说明“算法为什么有效”，而不是复述实现细节。</p>
 </blockquote>
 <h2 id="1-问题背景" class="relative group">1. 问题背景 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#1-%e9%97%ae%e9%a2%98%e8%83%8c%e6%99%af" aria-label="锚点">#</a></span></h2><p>在功率驱动类调制中，理想占空比并不能直接等于可输出占空比。真实系统至少要同时满足三类约束：</p>
@@ -632,11 +783,11 @@
 <li>边界频繁抖动；</li>
 <li>在高占空比附近出现输出不连续。</li>
 </ul>
-<h2 id="2-方法核心抽象表达" class="relative group">2. 方法核心（抽象表达） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-%e6%96%b9%e6%b3%95%e6%a0%b8%e5%bf%83%e6%8a%bd%e8%b1%a1%e8%a1%a8%e8%be%be" aria-label="锚点">#</a></span></h2><p>设周期为 $T$，安全间隔为 $\tau_d$，最小高/低脉宽门限分别为 $\tau_{h,min},\tau_{l,min}$。<br>
+<h2 id="2-方法核心抽象表达" class="relative group">2. 方法核心（抽象表达） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-%e6%96%b9%e6%b3%95%e6%a0%b8%e5%bf%83%e6%8a%bd%e8%b1%a1%e8%a1%a8%e8%be%be" aria-label="锚点">#</a></span></h2><p>设周期为 \(T\)，安全间隔为 \(\tau_d\)，最小高/低脉宽门限分别为 \(\tau_{h,\min},\tau_{l,\min}\)。<br>
 算法并不直接追求“几何理想宽度”，而是按以下顺序求“可执行宽度”。</p>
 <h3 id="21-第一级本周期短脉冲抑制" class="relative group">2.1 第一级：本周期短脉冲抑制 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#21-%e7%ac%ac%e4%b8%80%e7%ba%a7%e6%9c%ac%e5%91%a8%e6%9c%9f%e7%9f%ad%e8%84%89%e5%86%b2%e6%8a%91%e5%88%b6" aria-label="锚点">#</a></span></h3><p>先检查本周期候选脉冲宽度：</p>
 <ul>
-<li>若宽度 $<\tau_{min}$，直接判为不可执行并抑制；</li>
+<li>若宽度 \(<\tau_{\min}\)，直接判为不可执行并抑制；</li>
 <li>若宽度可执行，再进入下一步。</li>
 </ul>
 <p>这一层的价值是先消除“必然失败”的脉冲，降低后续链路不确定性。</p>
@@ -649,14 +800,14 @@
 
   
   
-<figure><img src="DESIGN_CHART_ANALYSIS_images/blog_minpulse_suppress.svg" alt="最小脉冲抑制示意" class="mx-auto my-0 rounded-md" />
+<figure><img src="/posts/pwm_min_pulse_correction/blog_minpulse_suppress.svg" alt="最小脉冲抑制示意" class="mx-auto my-0 rounded-md" />
 </figure>
 </p>
 <h3 id="22-第二级跨周期-incoming-检查" class="relative group">2.2 第二级：跨周期 incoming 检查 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#22-%e7%ac%ac%e4%ba%8c%e7%ba%a7%e8%b7%a8%e5%91%a8%e6%9c%9f-incoming-%e6%a3%80%e6%9f%a5" aria-label="锚点">#</a></span></h3><p>对“下一周期起始脉冲”不单独判断，而是与“当前周期末剩余窗口”拼接后判断。</p>
 <p>换句话说，使用两周期视角（抽象表达）：</p>
 $$
 W_{in} = W_{k,tail} + W_{k+1,head}
-$$<p>并以 $W_{in}$ 与对应最小门限比较，再决定是否抑制或保留。</p>
+$$<p>并以 \(W_{in}\) 与对应最小门限比较，再决定是否抑制或保留。</p>
 <h3 id="23-第三级当前周期修正correction" class="relative group">2.3 第三级：当前周期修正（correction） <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#23-%e7%ac%ac%e4%b8%89%e7%ba%a7%e5%bd%93%e5%89%8d%e5%91%a8%e6%9c%9f%e4%bf%ae%e6%ad%a3correction" aria-label="锚点">#</a></span></h3><p>当满足边界可行条件时，对当前周期末边沿做有限修正，目标不是“变大越多越好”，而是：</p>
 <ul>
 <li>保证可执行；</li>
@@ -668,10 +819,10 @@ $$
 \Delta = W_{act} - W_{ref}
 $$<p>其中：</p>
 <ul>
-<li>$W_{act}$：应用修正后的实际有效宽度；</li>
-<li>$W_{ref}$：在同输入、同前态下，不应用修正时的回放宽度。</li>
+<li>\(W_{act}\)：应用修正后的实际有效宽度；</li>
+<li>\(W_{ref}\)：在同输入、同前态下，不应用修正时的回放宽度。</li>
 </ul>
-<p>当 $\Delta>0$，表示修正带来了<strong>净有效宽度收益</strong>（等价于有效占空比提升）。</p>
+<p>当 \(\Delta>0\)，表示修正带来了<strong>净有效宽度收益</strong>（等价于有效占空比提升）。</p>
 <p>
 
 
@@ -681,7 +832,7 @@ $$<p>其中：</p>
 
   
   
-<figure><img src="DESIGN_CHART_ANALYSIS_images/blog_correction_window.svg" alt="跨周期修正示意" class="mx-auto my-0 rounded-md" />
+<figure><img src="/posts/pwm_min_pulse_correction/blog_correction_window.svg" alt="跨周期修正示意" class="mx-auto my-0 rounded-md" />
 </figure>
 </p>
 <h2 id="3-为什么说它有效" class="relative group">3. 为什么说它有效 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-%e4%b8%ba%e4%bb%80%e4%b9%88%e8%af%b4%e5%ae%83%e6%9c%89%e6%95%88" aria-label="锚点">#</a></span></h2><h3 id="31-有效性不是更激进而是更可执行" class="relative group">3.1 有效性不是“更激进”，而是“更可执行” <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#31-%e6%9c%89%e6%95%88%e6%80%a7%e4%b8%8d%e6%98%af%e6%9b%b4%e6%bf%80%e8%bf%9b%e8%80%8c%e6%98%af%e6%9b%b4%e5%8f%af%e6%89%a7%e8%a1%8c" aria-label="锚点">#</a></span></h3><p>该方法在每一步都先做可行性筛选：</p>
@@ -692,7 +843,7 @@ $$<p>其中：</p>
 </ul>
 <p>因此它天然比“直接按理想占空比输出”更稳定。</p>
 <h3 id="32-边界工况更平滑" class="relative group">3.2 边界工况更平滑 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#32-%e8%be%b9%e7%95%8c%e5%b7%a5%e5%86%b5%e6%9b%b4%e5%b9%b3%e6%bb%91" aria-label="锚点">#</a></span></h3><p>在高占空比、周期切换、或门限附近，输出最容易发生抖动。两周期视角能显著减少“边界突然翻转”的现象。</p>
-<h3 id="33-收益可量化" class="relative group">3.3 收益可量化 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#33-%e6%94%b6%e7%9b%8a%e5%8f%af%e9%87%8f%e5%8c%96" aria-label="锚点">#</a></span></h3><p>通过 $\Delta$ 可以直接统计：</p>
+<h3 id="33-收益可量化" class="relative group">3.3 收益可量化 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#33-%e6%94%b6%e7%9b%8a%e5%8f%af%e9%87%8f%e5%8c%96" aria-label="锚点">#</a></span></h3><p>通过 \(\Delta\) 可以直接统计：</p>
 <ul>
 <li>哪些序列有净收益；</li>
 <li>收益发生在什么区间；</li>

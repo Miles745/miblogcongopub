@@ -16,8 +16,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FFFFFF" />
   
-  <title>Second &middot; BD Motor Control</title>
-    <meta name="title" content="Second &middot; BD Motor Control" />
+  <title>PWM Minimum Pulse Suppression & Cross-Cycle Correction &middot; BD Motor Control</title>
+    <meta name="title" content="PWM Minimum Pulse Suppression & Cross-Cycle Correction &middot; BD Motor Control" />
   
   
   
@@ -75,7 +75,7 @@
     name="description"
     content="
       
-        A quick test post with headings (and now a proper list-card summary and thumbnail).
+        From constraint modeling to two-stage suppression and cross-cycle correction—why this approach stays executable and smooth near boundaries.
       
     "
   />
@@ -101,20 +101,22 @@
   
   <meta property="og:url" content="https://miles745.github.io/miblogcongopub/posts/pwm_min_pulse_correction/">
   <meta property="og:site_name" content="BD Motor Control">
-  <meta property="og:title" content="Second">
-  <meta property="og:description" content="A quick test post with headings (and now a proper list-card summary and thumbnail).">
+  <meta property="og:title" content="PWM Minimum Pulse Suppression & Cross-Cycle Correction">
+  <meta property="og:description" content="From constraint modeling to two-stage suppression and cross-cycle correction—why this approach stays executable and smooth near boundaries.">
   <meta property="og:locale" content="en_AU">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-02-15T16:31:20+08:00">
-    <meta property="article:modified_time" content="2026-02-15T16:31:20+08:00">
+    <meta property="article:published_time" content="2026-02-22T23:30:00+08:00">
+    <meta property="article:modified_time" content="2026-02-22T23:30:00+08:00">
+    <meta property="article:tag" content="PWM">
+    <meta property="article:tag" content="Modulation">
     <meta property="og:image" content="https://miles745.github.io/miblogcongopub/posts/pwm_min_pulse_correction/feature.jpg">
 
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://miles745.github.io/miblogcongopub/posts/pwm_min_pulse_correction/feature.jpg">
-  <meta name="twitter:title" content="Second">
-  <meta name="twitter:description" content="A quick test post with headings (and now a proper list-card summary and thumbnail).">
+  <meta name="twitter:title" content="PWM Minimum Pulse Suppression & Cross-Cycle Correction">
+  <meta name="twitter:description" content="From constraint modeling to two-stage suppression and cross-cycle correction—why this approach stays executable and smooth near boundaries.">
 
   
   <script type="application/ld+json">
@@ -122,10 +124,10 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Blog",
-    "name": "Second",
-    "headline": "Second",
+    "name": "PWM Minimum Pulse Suppression \u0026 Cross-Cycle Correction",
+    "headline": "PWM Minimum Pulse Suppression \u0026 Cross-Cycle Correction",
     
-    "abstract": "A quick test post with headings (and now a proper list-card summary and thumbnail).",
+    "abstract": "From constraint modeling to two-stage suppression and cross-cycle correction—why this approach stays executable and smooth near boundaries.",
     "inLanguage": "en-AU",
     "url" : "https:\/\/miles745.github.io\/miblogcongopub\/posts\/pwm_min_pulse_correction\/",
     "author" : {
@@ -133,15 +135,15 @@
       "name": "Congo"
     },
     "copyrightYear": "2026",
-    "dateCreated": "2026-02-15T16:31:20\u002b08:00",
-    "datePublished": "2026-02-15T16:31:20\u002b08:00",
+    "dateCreated": "2026-02-22T23:30:00\u002b08:00",
+    "datePublished": "2026-02-22T23:30:00\u002b08:00",
     
-    "dateModified": "2026-02-15T16:31:20\u002b08:00",
+    "dateModified": "2026-02-22T23:30:00\u002b08:00",
     
-    
+    "keywords": ["PWM","Modulation"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "16"
+    "wordCount": "574"
   }
   </script>
     
@@ -164,7 +166,7 @@
      },
      {
        "@type": "ListItem",
-       "name": "Second",
+       "name": "Pwm Minimum Pulse Suppression \u0026 Cross Cycle Correction",
        "position": 3
      }
    ]
@@ -193,6 +195,155 @@
 
 
 
+
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="https://miles745.github.io/miblogcongopub/lib/katex/katex.min.e189fd0238811989c3646dcebda8bc0cfb1ec791b79e60cf9d18f05a49c8a016.css"
+    integrity="sha256-4Yn9AjiBGYnDZG3Ovai8DPsex5G3nmDPnRjwWknIoBY="
+  />
+  
+  
+  <script defer src="https://miles745.github.io/miblogcongopub/lib/katex/katex.min.6b909443e6c8f6e5d24cc4872fe909a54770762047ae95e3f34f55ec2e6f6c3a.js" integrity="sha256-a5CUQ&#43;bI9uXSTMSHL&#43;kJpUdwdiBHrpXj809V7C5vbDo="></script>
+  
+  
+  <script
+    defer
+    src="https://miles745.github.io/miblogcongopub/lib/katex/auto-render.min.bb53eb953394531aae36fdd537065c4244eb8542901a3ce914601d932675b8ac.js"
+    integrity="sha256-u1PrlTOUUxquNv3VNwZcQkTrhUKQGjzpFGAdkyZ1uKw="
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   // block
+        {left: '$$', right: '$$', display: true},     // block
+        {left: '\\(', right: '\\)', display: false},  // inline
+      ],
+      throwOnError : false
+    });"
+  ></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
 
 
   
@@ -451,7 +602,7 @@
     <a
       class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
       href="https://miles745.github.io/miblogcongopub/posts/pwm_min_pulse_correction/"
-      >Second</a
+      >PWM Minimum Pulse Suppression &amp; Cross-Cycle Correction</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -460,7 +611,7 @@
 
       
       <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Second
+        PWM Minimum Pulse Suppression & Cross-Cycle Correction
       </h1>
       
         <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
@@ -496,7 +647,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <span title="Reading time">1 min</span><span class="px-2 text-primary-500">&middot;</span>
+      <span title="Reading time">3 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
   
@@ -589,8 +740,23 @@
   <div class="border-s border-dotted border-neutral-300 py-2 ps-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#this-is-a-heading-2">This is a heading 2</a></li>
-    <li><a href="#this-is-a-heading-3">This is a heading 3</a></li>
+    <li><a href="#1-background">1. Background</a></li>
+    <li><a href="#2-core-idea-abstract">2. Core idea (abstract)</a>
+      <ul>
+        <li><a href="#21-stage-1-short-pulse-suppression-within-the-current-cycle">2.1 Stage 1: short-pulse suppression within the current cycle</a></li>
+        <li><a href="#22-stage-2-cross-cycle-incoming-check">2.2 Stage 2: cross-cycle incoming check</a></li>
+        <li><a href="#23-stage-3-correction-to-the-current-cycle">2.3 Stage 3: correction to the current cycle</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-why-it-works">3. Why it works</a>
+      <ul>
+        <li><a href="#31-effectiveness-is-more-executable-not-more-aggressive">3.1 Effectiveness is “more executable”, not “more aggressive”</a></li>
+        <li><a href="#32-smoother-behavior-near-boundaries">3.2 Smoother behavior near boundaries</a></li>
+        <li><a href="#33-quantifiable-benefit">3.3 Quantifiable benefit</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-practical-note-personal-logging">4. Practical note (personal logging)</a></li>
+    <li><a href="#5-summary">5. Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -600,7 +766,104 @@
         </div>
       
       <div class="min-h-0 min-w-0 max-w-prose grow">
-        <h1 id="this-is-a-heading-1" class="relative group">This is a heading 1 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#this-is-a-heading-1" aria-label="Anchor">#</a></span></h1><h2 id="this-is-a-heading-2" class="relative group">This is a heading 2 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#this-is-a-heading-2" aria-label="Anchor">#</a></span></h2><h2 id="this-is-a-heading-3" class="relative group">This is a heading 3 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#this-is-a-heading-3" aria-label="Anchor">#</a></span></h2>
+        
+
+<blockquote>
+<p>This is a methodology note: it focuses on <em>why</em> the algorithm works, not on implementation details.</p>
+</blockquote>
+<h2 id="1-background" class="relative group">1. Background <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#1-background" aria-label="Anchor">#</a></span></h2><p>In power-drive modulation, the ideal duty ratio is not the same as the duty ratio you can actually output. A real system typically has to satisfy at least these constraints:</p>
+<ol>
+<li><strong>Minimum distinguishable pulse width</strong>: very short pulses may be written but not reliably executed.</li>
+<li><strong>Dead-time / complementary leg safety margin</strong>: a safety interval is required to avoid shoot-through.</li>
+<li><strong>Cycle-boundary continuity</strong>: how the end of the current cycle and the start of the next one connect determines whether “pseudo short pulses” appear.</li>
+</ol>
+<p>If you only do single-cycle, local limiting on one edge, common symptoms are:</p>
+<ul>
+<li>pulses that exist “logically” but are unusable in practice,</li>
+<li>frequent boundary jitter,</li>
+<li>discontinuities near high duty ratios.</li>
+</ul>
+<h2 id="2-core-idea-abstract" class="relative group">2. Core idea (abstract) <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-core-idea-abstract" aria-label="Anchor">#</a></span></h2><p>Let the PWM period be \(T\), dead-time (or safety margin) be \(\tau_d\), and minimum high/low pulse thresholds be \(\tau_{h,\min},\tau_{l,\min}\).</p>
+<p>Instead of chasing the “geometrically ideal width”, the algorithm searches for an <em>executable width</em> with the following ordering.</p>
+<h3 id="21-stage-1-short-pulse-suppression-within-the-current-cycle" class="relative group">2.1 Stage 1: short-pulse suppression within the current cycle <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#21-stage-1-short-pulse-suppression-within-the-current-cycle" aria-label="Anchor">#</a></span></h3><p>First, check the candidate pulse width in the current cycle:</p>
+<ul>
+<li>If width \(< \tau_{\min}\), mark it non-executable and suppress it.</li>
+<li>If it is executable, proceed to the next stage.</li>
+</ul>
+<p>This stage removes pulses that are guaranteed to fail and reduces uncertainty downstream.</p>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/posts/pwm_min_pulse_correction/blog_minpulse_suppress.svg" alt="Minimum pulse suppression" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<h3 id="22-stage-2-cross-cycle-incoming-check" class="relative group">2.2 Stage 2: cross-cycle incoming check <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#22-stage-2-cross-cycle-incoming-check" aria-label="Anchor">#</a></span></h3><p>For the “incoming pulse at the beginning of the next cycle”, do not judge it in isolation. Instead, concatenate it with the remaining tail window of the current cycle.</p>
+<p>In other words, use a two-cycle view (abstractly):</p>
+$$
+W_{in} = W_{k,tail} + W_{k+1,head}
+$$<p>Compare \(W_{in}\) against the corresponding minimum threshold, then decide to keep or suppress.</p>
+<h3 id="23-stage-3-correction-to-the-current-cycle" class="relative group">2.3 Stage 3: correction to the current cycle <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#23-stage-3-correction-to-the-current-cycle" aria-label="Anchor">#</a></span></h3><p>Once boundary feasibility is satisfied, apply a limited correction to the end edge of the current cycle. The goal is not “make it as large as possible”, but:</p>
+<ul>
+<li>keep it executable,</li>
+<li>keep transitions continuous,</li>
+<li>stay close to the requested trajectory.</li>
+</ul>
+<p>One convenient metric is:</p>
+$$
+\Delta = W_{act} - W_{ref}
+$$<p>where:</p>
+<ul>
+<li>\(W_{act}\): effective width after correction,</li>
+<li>\(W_{ref}\): replay width under the same input and same previous state, without correction.</li>
+</ul>
+<p>When \(\Delta>0\), the correction brings a <strong>net gain in effective width</strong> (equivalently, an increase in effective duty).</p>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/posts/pwm_min_pulse_correction/blog_correction_window.svg" alt="Cross-cycle correction" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<h2 id="3-why-it-works" class="relative group">3. Why it works <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-why-it-works" aria-label="Anchor">#</a></span></h2><h3 id="31-effectiveness-is-more-executable-not-more-aggressive" class="relative group">3.1 Effectiveness is “more executable”, not “more aggressive” <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#31-effectiveness-is-more-executable-not-more-aggressive" aria-label="Anchor">#</a></span></h3><p>Each stage starts with feasibility filtering:</p>
+<ul>
+<li>suppress pulses that are guaranteed to be invalid,</li>
+<li>check the cross-cycle concatenation,</li>
+<li>only then correct within a feasible window.</li>
+</ul>
+<p>This makes it naturally more stable than “output the ideal duty directly”.</p>
+<h3 id="32-smoother-behavior-near-boundaries" class="relative group">3.2 Smoother behavior near boundaries <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#32-smoother-behavior-near-boundaries" aria-label="Anchor">#</a></span></h3><p>Jitter is most likely near high duty ratios, at cycle transitions, or close to thresholds. A two-cycle view reduces sudden flips at boundaries.</p>
+<h3 id="33-quantifiable-benefit" class="relative group">3.3 Quantifiable benefit <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#33-quantifiable-benefit" aria-label="Anchor">#</a></span></h3><p>\(\Delta\) lets you directly quantify:</p>
+<ul>
+<li>which sequences yield net gain,</li>
+<li>where in the operating range the gain happens,</li>
+<li>which scenarios trigger correction but still have zero net gain (still useful—it indicates conservative operation at the edge).</li>
+</ul>
+<h2 id="4-practical-note-personal-logging" class="relative group">4. Practical note (personal logging) <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#4-practical-note-personal-logging" aria-label="Anchor">#</a></span></h2><p>For a personal engineering notebook, a consistent record format helps:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Case=&lt;name&gt;; Seq=[u(k),u(k+1)]; PrevState=&lt;fixed-prev-state&gt;;
+</span></span><span class="line"><span class="cl">W_act=&lt;ticks&gt;; W_ref=&lt;ticks&gt;; Delta=&lt;ticks&gt;; DeltaDuty=&lt;%&gt;
+</span></span></code></pre></div><p>Two simple rules:</p>
+<ol>
+<li>Compare only under “same input + same previous state”.</li>
+<li>Check executability first, then the size of the gain.</li>
+</ol>
+<h2 id="5-summary" class="relative group">5. Summary <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#5-summary" aria-label="Anchor">#</a></span></h2><p>Minimum-pulse suppression + correction is essentially a <strong>constraint-first output reconstruction</strong>:</p>
+<ul>
+<li>not pursuing mathematically ideal pulse widths,</li>
+<li>but pursuing engineering executability, continuity, and measurable benefit.</li>
+</ul>
+<p>That is why it remains stable and useful even in boundary conditions.</p>
+
       </div>
     </section>
     <footer class="max-w-prose pt-8 print:hidden">
